@@ -208,13 +208,13 @@
         <section id="cultural-intelligence" class="module-section py-10">
             <h2 class="text-4xl font-bold section-header mb-8">2. Cultural Intelligence (CQ)</h2>
             <div class="bg-white p-8 rounded-xl module-card">
-                <p class="text-lg mb-6">Cultural Intelligence (CQ) is the capability to function effectively in culturally diverse situations (Earley & Ang, 2003). It’s more than awareness; it's a measurable and developable aptitude that allows individuals to adapt and thrive. For Google, high CQ means enhanced cross-cultural collaboration, improved innovation, and more effective global leadership.</p>
+                <p class="text-lg mb-6">Cultural Intelligence (CQ) is the capability to function effectively in culturally diverse situations (Earley & Ang, 2003). It's more than awareness; it's a measurable and developable aptitude that allows individuals to adapt and thrive. For Google, high CQ means enhanced cross-cultural collaboration, improved innovation, and more effective global leadership.</p>
 
                 <h3 class="text-2xl font-bold mb-4 text-gray-700">The Four Capabilities of CQ (Earley & Ang Model):</h3>
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div>
                         <h4 class="text-xl font-semibold text-blue-600 mb-2">CQ Drive (Motivational CQ)</h4>
-                        <p class="text-base">Your interest, persistence, and confidence in engaging with culturally diverse settings. It’s the intrinsic motivation.</p>
+                        <p class="text-base">Your interest, persistence, and confidence in engaging with culturally diverse settings. It's the intrinsic motivation.</p>
                         <div class="example-box">
                             <p class="font-semibold">Google Context:</p>
                             <p>A Googler with high CQ Drive might proactively seek out international assignments or volunteer for projects with diverse, globally distributed teams.</p>
@@ -495,10 +495,11 @@
         function submitQuiz() {
             let score = 0;
             const quizContainer = document.getElementById('quiz-container');
+            const optionsContainers = quizContainer.querySelectorAll('.options-container');
             
             quizQuestions.forEach((q, qIndex) => {
-                // Find the specific options container for the current question
-                const optionsContainer = quizContainer.querySelector(`.quiz-option[data-question="${qIndex}"]`).closest('.options-container');
+                // Use the correct options container for each question
+                const optionsContainer = optionsContainers[qIndex];
                 const selectedOptionDiv = optionsContainer.querySelector('.quiz-option.selected');
                 const correctAnswer = q.correctAnswer;
 
