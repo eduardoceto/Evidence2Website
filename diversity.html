@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercultural Competencies for Google</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Google Sans', sans-serif;
+            background-color: #f8f9fa; /* Light grey background */
+            color: #202124; /* Dark grey text */
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-link {
+            color: #5f6368; /* Google grey */
+            padding: 0.5rem 1rem;
+            border-radius: 9999px; /* Pill shape */
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: #e8f0fe; /* Light blue on hover */
+            color: #1a73e8; /* Google Blue */
+        }
+        .nav-link.active {
+            background-color: #1a73e8; /* Google Blue for active */
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .module-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #dadce0; /* Subtle border */
+        }
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+        .quiz-option {
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex; /* Use flexbox for icon alignment */
+            align-items: center;
+            justify-content: space-between; /* Space between text and icon */
+        }
+        .quiz-option:hover {
+            background-color: #e8f0fe;
+            border-color: #a8d1ff;
+        }
+        .quiz-option.selected {
+            background-color: #e8f0fe;
+            border-color: #1a73e8;
+            font-weight: 500;
+        }
+        .quiz-option.correct {
+            background-color: #e6ffed; /* Light green */
+            border-color: #34a853; /* Google Green */
+        }
+        .quiz-option.incorrect {
+            background-color: #fce8e6; /* Light red */
+            border-color: #ea4335; /* Google Red */
+        }
+        .button-primary {
+            background-color: #1a73e8;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .button-primary:hover {
+            background-color: #174ea6;
+        }
+        .button-secondary {
+            background-color: #f0f0f0;
+            color: #5f6368;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            border: 1px solid #dadce0;
+        }
+        .button-secondary:hover {
+            background-color: #e8f0fe;
+            color: #1a73e8;
+        }
+        .section-header {
+            border-bottom: 2px solid #e8f0fe;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a73e8;
+        }
+        .pro-tip {
+            background-color: #fff3e0; /* Light orange for tips */
+            border-left: 4px solid #f9ab00; /* Google Orange */
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .example-box {
+            background-color: #e6f7ff; /* Light blue for examples */
+            border-left: 4px solid #4285f4; /* Google Blue */
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .feedback-icon {
+            font-size: 1.2em;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="header">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <a href="#home" class="text-2xl font-bold text-gray-900">Google Intercultural Learning</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#intercultural-communication" class="nav-link" data-module="intercultural-communication">Intercultural Communication</a>
+                <a href="#cultural-intelligence" class="nav-link" data-module="cultural-intelligence">Cultural Intelligence</a>
+                <a href="#identities-self-awareness" class="nav-link" data-module="identities-self-awareness">Identities & Self-awareness</a>
+                <a href="#negotiation-conflict" class="nav-link" data-module="negotiation-conflict">Negotiation & Conflict</a>
+                <a href="#quiz" class="nav-link" data-module="quiz">Quick Quiz</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <section id="home" class="py-12 text-center bg-white rounded-xl shadow-lg mb-8">
+            <h1 class="text-5xl font-bold text-gray-900 mb-4">Mastering Intercultural Competencies</h1>
+            <p class="text-xl text-gray-600 mb-6">Empowering Googlers for a global, diverse, and inclusive workplace.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#intercultural-communication" class="button-primary text-lg scroll-link">Start Learning</a>
+                <a href="#quiz" class="button-secondary text-lg scroll-link">Test Your Knowledge</a>
+            </div>
+        </section>
+
+        <section id="intercultural-communication" class="module-section py-10">
+            <h2 class="text-4xl font-bold section-header mb-8">1. Intercultural Communication</h2>
+            <div class="bg-white p-8 rounded-xl module-card">
+                <p class="text-lg mb-6">In a global company like Google, effective communication across diverse cultures is not just a nice-to-have; it's a critical operational necessity. Miscommunication can lead to project delays, strained relationships, and missed opportunities. Mastering intercultural communication fosters psychological safety, enhances creativity, and builds stronger global teams.</p>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Key Concepts:</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">High-Context vs. Low-Context Communication</h4>
+                        <p class="text-base mb-2"><strong>High-Context:</strong> Communication relies on implicit cues, shared understanding, and context. Meaning is inferred. (e.g., Japan, China)</p>
+                        <p class="text-base"><strong>Low-Context:</strong> Communication is direct and explicit, relying on verbal messages. Meaning is clearly stated. (e.g., Germany, USA)</p>
+                        <div class="example-box">
+                            <p class="font-semibold">Example for Googlers:</p>
+                            <p>A Japanese team member (high-context) might imply a disagreement rather than stating it directly, expecting colleagues to pick up on subtle cues. A German team member (low-context) would likely state their disagreement clearly and directly.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Direct vs. Indirect Communication</h4>
+                        <p class="text-base mb-2"><strong>Direct:</strong> Messages delivered straightforwardly, valuing clarity over saving face. (e.g., USA, Netherlands)</p>
+                        <p class="text-base"><strong>Indirect:</strong> Messages delivered subtly, prioritizing harmony and politeness. Criticism might be implied. (e.g., Korea, many Latin American cultures)</p>
+                        <div class="example-box">
+                            <p class="font-semibold">Example for Googlers:</p>
+                            <p>During a code review, a U.S. engineer might say, "This code has a bug here." A Korean engineer might say, "Perhaps we could explore alternative approaches for this section to ensure robustness."</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Non-Verbal Communication</h4>
+                        <p class="text-base">Includes gestures, eye contact, personal space, and tone. Meanings are highly culture-specific and can lead to significant misunderstandings.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Active Listening & Empathy</h4>
+                        <p class="text-base">Crucial for bridging gaps. Involves fully concentrating, demonstrating understanding, and sharing feelings to build trust.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Practical Strategies for Googlers:</h3>
+                <ul class="list-disc list-inside space-y-2 text-base">
+                    <li><strong class="text-blue-600">Be Explicit and Clear:</strong> Especially in written communication (emails, documentation). Avoid jargon and err on the side of over-explaining.</li>
+                    <li><strong class="text-blue-600">Ask Clarifying Questions:</strong> Don't assume understanding. "Could you elaborate?" or "Can you walk me through your understanding?"</li>
+                    <li><strong class="text-blue-600">Observe and Adapt:</strong> Pay attention to the communication styles of international colleagues and respectfully adjust your own.</li>
+                    <li><strong class="text-blue-600">Leverage Visuals:</strong> Use diagrams, flowcharts, and visual aids to supplement verbal explanations, particularly for complex technical concepts.</li>
+                    <li><strong class="text-blue-600">Utilize Technology Thoughtfully:</strong> Be mindful of time zones for meetings. Use collaborative tools and asynchronous communication.</li>
+                    <li><strong class="text-blue-600">Build Personal Relationships:</strong> Informal interactions can build rapport and trust, acting as a buffer against communication breakdowns.</li>
+                </ul>
+                <div class="pro-tip mt-6">
+                    <p class="font-bold text-orange-700">Pro Tip for Google:</p>
+                    <p>When working on global projects, consider holding an initial "communication norms" meeting to explicitly discuss preferred communication styles, feedback mechanisms, and meeting etiquette among team members from different cultural backgrounds. This proactively addresses potential friction points.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cultural-intelligence" class="module-section py-10">
+            <h2 class="text-4xl font-bold section-header mb-8">2. Cultural Intelligence (CQ)</h2>
+            <div class="bg-white p-8 rounded-xl module-card">
+                <p class="text-lg mb-6">Cultural Intelligence (CQ) is the capability to function effectively in culturally diverse situations (Earley & Ang, 2003). It’s more than awareness; it's a measurable and developable aptitude that allows individuals to adapt and thrive. For Google, high CQ means enhanced cross-cultural collaboration, improved innovation, and more effective global leadership.</p>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">The Four Capabilities of CQ (Earley & Ang Model):</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">CQ Drive (Motivational CQ)</h4>
+                        <p class="text-base">Your interest, persistence, and confidence in engaging with culturally diverse settings. It’s the intrinsic motivation.</p>
+                        <div class="example-box">
+                            <p class="font-semibold">Google Context:</p>
+                            <p>A Googler with high CQ Drive might proactively seek out international assignments or volunteer for projects with diverse, globally distributed teams.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">CQ Knowledge (Cognitive CQ)</h4>
+                        <p class="text-base">Your understanding of how cultures are similar and different, including values, norms, and practices (e.g., Hofstede's dimensions).</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">CQ Strategy (Metacognitive CQ)</h4>
+                        <p class="text-base">Your ability to plan for, monitor, and adapt your cultural knowledge during intercultural interactions. It's "thinking about your thinking."</p>
+                        <div class="example-box">
+                            <p class="font-semibold">Google Context:</p>
+                            <p>Before a meeting with a new team in a different country, a Googler with high CQ Strategy would research their cultural norms and anticipate potential communication differences.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">CQ Action (Behavioral CQ)</h4>
+                        <p class="text-base">Your capability to adapt your verbal and nonverbal behavior to fit different cultural contexts, putting knowledge into practice.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Practical Strategies for Googlers to Enhance CQ:</h3>
+                <ul class="list-disc list-inside space-y-2 text-base">
+                    <li><strong class="text-blue-600">Self-Assessment:</strong> Take CQ assessments to understand strengths and areas for development.</li>
+                    <li><strong class="text-blue-600">Seek Diverse Experiences:</strong> Participate in global projects, join ERGs, and engage with colleagues from different backgrounds.</li>
+                    <li><strong class="text-blue-600">Pre-Interaction Research:</strong> Before interacting with a new culture or team, research their general norms.</li>
+                    <li><strong class="text-blue-600">Practice Mindfulness and Observation:</strong> Pay close attention to cues and notice what's working.</li>
+                    <li><strong class="text-blue-600">Seek Feedback:</strong> Ask trusted colleagues for feedback on your intercultural interactions.</li>
+                    <li><strong class="text-blue-600">Reflect and Learn:</strong> After an experience, reflect on what went well and what could be improved.</li>
+                    <li><strong class="text-blue-600">Embrace Discomfort:</strong> View challenges as learning opportunities for growth.</li>
+                </ul>
+                <div class="pro-tip mt-6">
+                    <p class="font-bold text-orange-700">Pro Tip for Google:</p>
+                    <p>Google's commitment to accessibility and building products for everyone (e.g., 1,000 Languages Initiative) is an example of high CQ in action at an organizational level. Reflect on how your individual projects can embody this "building for everyone" mindset.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="identities-self-awareness" class="module-section py-10">
+            <h2 class="text-4xl font-bold section-header mb-8">3. Identities and Self-awareness</h2>
+            <div class="bg-white p-8 rounded-xl module-card">
+                <p class="text-lg mb-6">Understanding our own cultural identity, biases, and assumptions is the foundational step in effective intercultural interaction. Our "cultural lens" shapes how we perceive the world and interpret others' behaviors. Developing self-awareness allows us to manage our assumptions and truly engage across differences.</p>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Key Concepts:</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Cultural Identity</h4>
+                        <p class="text-base">The part of our self-concept derived from our membership in various social groups (e.g., nationality, ethnicity, gender, profession, organizational culture like "Googliness"). These identities influence our values and behaviors.</p>
+                        <div class="example-box">
+                            <p class="font-semibold">Example for Googlers:</p>
+                            <p>Your identity as an "engineer" might bring a problem-solving, data-driven approach, which could clash with a "marketing" identity that prioritizes user sentiment and brand narrative. Recognizing these professional cultural identities is key.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Personal Biases & Assumptions</h4>
+                        <p class="text-base">Subconscious preferences or prejudices that influence how we perceive others. These stem from our upbringing, experiences, and cultural conditioning and can lead to misjudgments or stereotypes.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">The Cultural Lens</h4>
+                        <p class="text-base">The invisible filter through which we interpret information, influenced by our own cultural norms and values. What seems "normal" to us might be unusual or even offensive to someone from a different background.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Privilege and Power Dynamics</h4>
+                        <p class="text-base">Understanding how our social standing, group affiliations (e.g., majority vs. minority status), or professional role (e.g., manager vs. individual contributor) can unconsciously impact interactions and create perceived power imbalances.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Practical Strategies for Googlers:</h3>
+                <ul class="list-disc list-inside space-y-2 text-base">
+                    <li><strong class="text-blue-600">Engage in Self-Reflection:</strong> Regularly consider your own values, communication style, and potential biases. Ask: "Why do I think this way?" or "What assumptions am I making?"</li>
+                    <li><strong class="text-blue-600">Actively Seek Feedback:</strong> Ask diverse colleagues for honest feedback on your cross-cultural interactions. Be open to hearing how your actions might be perceived differently.</li>
+                    <li><strong class="text-blue-600">Learn About Your Own Culture:</strong> Deepen your understanding of the norms and values of your primary cultural group. This helps identify your "cultural lens" more clearly.</li>
+                    <li><strong class="text-blue-600">Reinforce Bias Training:</strong> Apply lessons from Google's unconscious bias workshops. Recognizing and mitigating biases is an ongoing process that requires continuous self-awareness (Think with Google, n.d.).</li>
+                    <li><strong class="text-blue-600">Challenge Assumptions:</strong> When an interaction doesn't go as expected, question your initial assumptions about the other person's intent. Consider alternative cultural explanations.</li>
+                </ul>
+                <div class="pro-tip mt-6">
+                    <p class="font-bold text-orange-700">Pro Tip for Google:</p>
+                    <p>Google's emphasis on "Googliness" itself is a cultural identity. Be aware of how this internal culture interacts with broader national or professional cultures. Sometimes, what's "Googley" might not align with external cultural norms, requiring careful navigation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="negotiation-conflict" class="module-section py-10">
+            <h2 class="text-4xl font-bold section-header mb-8">4. Negotiation and Conflict Resolution</h2>
+            <div class="bg-white p-8 rounded-xl module-card">
+                <p class="text-lg mb-6">In a global organization, conflict is inevitable, but how we approach and resolve it across cultures determines outcomes. Cultural differences profoundly impact negotiation styles and conflict resolution strategies. Understanding these nuances is key to reaching mutually beneficial agreements and maintaining healthy working relationships.</p>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Key Concepts:</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Cultural Conflict Styles</h4>
+                        <ul class="list-disc list-inside space-y-1 text-base">
+                            <li><strong>Direct vs. Indirect Conflict:</strong> Some cultures address disagreements openly, others avoid direct confrontation to preserve harmony.</li>
+                            <li><strong>Emotionally Expressive vs. Emotionally Restrained:</strong> Differences in how feelings are shown during conflict.</li>
+                            <li><strong>Task-Oriented vs. Relationship-Oriented:</strong> Prioritizing the resolution of the task vs. preserving the relationship.</li>
+                        </ul>
+                        <div class="example-box">
+                            <p class="font-semibold">Example for Googlers:</p>
+                            <p>An Italian colleague might be more openly expressive during a disagreement, while a Japanese colleague might become quieter and withdraw to avoid confrontation, requiring different response strategies.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-2">Negotiation Approaches</h4>
+                        <ul class="list-disc list-inside space-y-1 text-base">
+                            <li><strong>Distributive (Win-Lose) vs. Integrative (Win-Win):</strong> Some cultures view negotiation as a zero-sum game; others seek collaborative solutions.</li>
+                            <li><strong>Formal vs. Informal:</strong> Reliance on written contracts and legal teams vs. trust, handshake deals, and personal relationships.</li>
+                            <li><strong>Pace and Time Perception:</strong> Some cultures prefer quick decisions; others require significant time for relationship building before negotiation.</li>
+                            <li><strong>Decision-Making:</strong> Individual authority vs. group consensus.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold mb-4 text-gray-700">Practical Strategies for Googlers:</h3>
+                <ul class="list-disc list-inside space-y-2 text-base">
+                    <li><strong class="text-blue-600">Diagnose the Conflict/Negotiation:</strong> Before engaging, try to understand the cultural lenses of all parties involved. What are their potential conflict styles? What is their relationship to time or hierarchy?</li>
+                    <li><strong class="text-blue-600">Adapt Your Style:</strong> Be flexible. If working with an indirect culture, you might need to soften your language or use intermediaries. If with a direct culture, be prepared for forthrightness.</li>
+                    <li><strong class="text-blue-600">Focus on Interests, Not Positions:</strong> Look beyond stated demands to understand the underlying needs and motivations of all parties. This helps in finding creative, mutually beneficial solutions.</li>
+                    <li><strong class="text-blue-600">Consider a Mediator/Facilitator:</strong> For complex or high-stakes intercultural conflicts, a neutral third party can help bridge communication gaps and ensure all voices are heard respectfully.</li>
+                    <li><strong class="text-blue-600">Build Trust Proactively:</strong> In many cultures, relationships are paramount. Invest time in building rapport and trust before, during, and after negotiations.</li>
+                    <li><strong class="text-blue-600">Clarify Expectations Explicitly:</strong> Especially with diverse teams, explicitly discuss the negotiation process, decision-making authority, and preferred communication norms.</li>
+                </ul>
+                <div class="pro-tip mt-6">
+                    <p class="font-bold text-orange-700">Pro Tip for Google:</p>
+                    <p>Google's shift towards localized teams and global product development often involves navigating diverse stakeholder interests. Employing these negotiation strategies can lead to more harmonious and effective global product launches and partnerships.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="module-section py-10">
+            <h2 class="text-4xl font-bold section-header mb-8">Quick Quiz: Test Your Intercultural IQ</h2>
+            <div class="bg-white p-8 rounded-xl module-card">
+                <p class="text-lg mb-6">Let's test your understanding of intercultural competencies. Choose the best answer for each question!</p>
+
+                <div id="quiz-container">
+                    </div>
+
+                <div class="mt-8 flex justify-center space-x-4">
+                    <button id="submit-quiz-btn" class="button-primary" disabled>Submit Answers</button>
+                    <button id="retake-quiz-btn" class="button-secondary hidden">Retake Quiz</button>
+                </div>
+
+                <div id="quiz-results" class="mt-6 text-center text-xl font-semibold hidden">
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white py-6 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; 2025 Google (Alphabet Inc.). All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const quizQuestions = [
+            {
+                question: "In a high-context culture, communication often relies heavily on:",
+                options: [
+                    "Explicit verbal statements",
+                    "Detailed written contracts",
+                    "Implicit cues and shared understanding",
+                    "Direct confrontation"
+                ],
+                correctAnswer: "Implicit cues and shared understanding"
+            },
+            {
+                question: "Which of the following is a characteristic of 'CQ Drive' (Motivational CQ)?",
+                options: [
+                    "Your knowledge of cultural facts and norms",
+                    "Your ability to adapt your non-verbal behavior",
+                    "Your interest and persistence in engaging with new cultures",
+                    "Your strategy for analyzing cultural situations"
+                ],
+                correctAnswer: "Your interest and persistence in engaging with new cultures"
+            },
+            {
+                question: "When a colleague from an indirect communication culture implies criticism rather than stating it, what is often their primary concern?",
+                options: [
+                    "To confuse you",
+                    "To save face and preserve harmony",
+                    "To avoid responsibility",
+                    "To test your understanding"
+                ],
+                correctAnswer: "To save face and preserve harmony"
+            },
+            {
+                question: "Understanding your own 'cultural lens' is most closely related to which intercultural competency?",
+                options: [
+                    "CQ Action",
+                    "Intercultural Communication",
+                    "Identities and Self-awareness",
+                    "Negotiation and Conflict Resolution"
+                ],
+                correctAnswer: "Identities and Self-awareness"
+            },
+            {
+                question: "In negotiation, if a culture is highly 'relationship-oriented,' what might be a key priority before discussing terms?",
+                options: [
+                    "Getting straight to business",
+                    "Formalizing the contract immediately",
+                    "Building trust and rapport",
+                    "Achieving a win-lose outcome"
+                ],
+                correctAnswer: "Building trust and rapport"
+            }
+        ];
+
+        let currentSelections = {}; // Stores the selected option for each question by index
+
+        // Function to update the state of the submit button (enabled/disabled)
+        function updateSubmitButtonState() {
+            const allAnswered = quizQuestions.every((_, index) => currentSelections[index] !== undefined && currentSelections[index] !== null);
+            const submitBtn = document.getElementById('submit-quiz-btn');
+            if (allAnswered) {
+                submitBtn.removeAttribute('disabled');
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                submitBtn.setAttribute('disabled', 'true');
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        // Renders the quiz questions
+        function renderQuiz() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = ''; // Clear previous questions
+            currentSelections = {}; // Reset selections for a new quiz
+            
+            quizQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('mb-6', 'p-6', 'bg-blue-50', 'rounded-lg', 'shadow-sm');
+                questionDiv.innerHTML = `
+                    <p class="font-bold text-lg mb-4 text-gray-800">${index + 1}. ${q.question}</p>
+                    <div class="options-container space-y-3">
+                        ${q.options.map((option, optIndex) => `
+                            <div class="quiz-option" data-question="${index}" data-option="${option}">
+                                <span>${option}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+
+            // Add event listeners to all quiz options
+            document.querySelectorAll('.quiz-option').forEach(optionDiv => {
+                optionDiv.addEventListener('click', function() {
+                    const questionIndex = this.dataset.question;
+                    const selectedOption = this.dataset.option;
+
+                    // Deselect any previously selected option for this question
+                    document.querySelectorAll(`.quiz-option[data-question="${questionIndex}"]`).forEach(opt => {
+                        opt.classList.remove('selected', 'correct', 'incorrect'); // Clear feedback classes on re-selection
+                        const icon = opt.querySelector('.feedback-icon');
+                        if (icon) icon.remove(); // Remove any existing feedback icons
+                    });
+
+                    // Select the current option
+                    this.classList.add('selected');
+                    currentSelections[questionIndex] = selectedOption; // Store the selection
+
+                    updateSubmitButtonState(); // Check if all questions are answered and update button state
+                });
+            });
+
+            // Reset quiz UI state
+            document.getElementById('submit-quiz-btn').classList.remove('hidden'); // Ensure submit button is visible
+            document.getElementById('retake-quiz-btn').classList.add('hidden'); // Hide retake button
+            document.getElementById('quiz-results').classList.add('hidden'); // Hide results
+            document.getElementById('quiz-results').innerHTML = ''; // Clear results text
+            updateSubmitButtonState(); // Set initial disabled state for submit button
+        }
+
+        // Submits the quiz and displays results
+        function submitQuiz() {
+            let score = 0;
+            const quizContainer = document.getElementById('quiz-container');
+            
+            quizQuestions.forEach((q, qIndex) => {
+                const optionsContainer = quizContainer.querySelector(`.options-container:nth-of-type(${qIndex + 1})`);
+                const selectedOptionDiv = optionsContainer.querySelector('.quiz-option.selected');
+                const correctAnswer = q.correctAnswer;
+
+                // Disable all options for this question after submission
+                optionsContainer.querySelectorAll('.quiz-option').forEach(opt => opt.style.pointerEvents = 'none');
+
+                // Provide feedback
+                if (selectedOptionDiv) {
+                    const selectedAnswer = selectedOptionDiv.dataset.option;
+                    if (selectedAnswer === correctAnswer) {
+                        selectedOptionDiv.classList.add('correct');
+                        selectedOptionDiv.querySelector('span').innerHTML += ' <span class="feedback-icon text-green-600">&#10003;</span>'; // Checkmark
+                        score++;
+                    } else {
+                        selectedOptionDiv.classList.add('incorrect');
+                        selectedOptionDiv.querySelector('span').innerHTML += ' <span class="feedback-icon text-red-600">&#10007;</span>'; // Cross
+                        // Also highlight the correct answer
+                        const correctOptionDiv = optionsContainer.querySelector(`.quiz-option[data-option="${correctAnswer}"]`);
+                        if (correctOptionDiv) {
+                            correctOptionDiv.classList.add('correct');
+                            correctOptionDiv.querySelector('span').innerHTML += ' <span class="feedback-icon text-green-600">&#10003;</span>';
+                        }
+                    }
+                } else {
+                    // If no answer was selected, just highlight the correct one
+                    const correctOptionDiv = optionsContainer.querySelector(`.quiz-option[data-option="${correctAnswer}"]`);
+                    if (correctOptionDiv) {
+                        correctOptionDiv.classList.add('correct');
+                        correctOptionDiv.querySelector('span').innerHTML += ' <span class="feedback-icon text-green-600">&#10003;</span>';
+                    }
+                }
+            });
+
+            const resultsDiv = document.getElementById('quiz-results');
+            resultsDiv.innerHTML = `You scored ${score} out of ${quizQuestions.length}!`;
+            resultsDiv.classList.remove('hidden'); // Show results
+
+            document.getElementById('submit-quiz-btn').classList.add('hidden'); // Hide submit button
+            document.getElementById('retake-quiz-btn').classList.remove('hidden'); // Show retake button
+        }
+
+        // Attach event listeners to quiz buttons
+        document.getElementById('submit-quiz-btn').addEventListener('click', submitQuiz);
+        document.getElementById('retake-quiz-btn').addEventListener('click', renderQuiz);
+
+
+        // Smooth Scrolling and Active Nav Link Logic
+        // Select all nav links AND the initial buttons with 'scroll-link' class
+        document.querySelectorAll('nav a, .scroll-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove 'active' class from all nav links
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add 'active' class only if the clicked element is a nav-link
+                if (this.classList.contains('nav-link')) {
+                    this.classList.add('active');
+                }
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) { // Ensure target section exists
+                    window.scrollTo({
+                        top: targetSection.offsetTop - document.querySelector('header').offsetHeight, // Adjust for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const scrollPos = window.scrollY + headerHeight + 10; // Add some buffer for active state
+
+            document.querySelectorAll('.module-section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                const sectionId = section.id;
+
+                if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+            // Handle active state for 'home' when at the very top
+            if (window.scrollY === 0) {
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                document.querySelector('nav a[href="#home"]').classList.add('active');
+            }
+        });
+
+
+        // Initial render of the quiz and set home as active on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+            document.querySelector('nav a[href="#home"]').classList.add('active');
+            updateSubmitButtonState(); // Ensure initial state of submit button is correct
+        });
+
+    </script>
+</body>
+</html>
