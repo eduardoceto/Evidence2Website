@@ -244,7 +244,7 @@
                     <li><strong class="text-blue-600">Seek Diverse Experiences:</strong> Participate in global projects, join ERGs, and engage with colleagues from different backgrounds.</li>
                     <li><strong class="text-blue-600">Pre-Interaction Research:</strong> Before interacting with a new culture or team, research their general norms.</li>
                     <li><strong class="text-blue-600">Practice Mindfulness and Observation:</strong> Pay close attention to cues and notice what's working.</li>
-                    <li><strong class="text-blue-600">Seek Feedback:</strong> Ask trusted colleagues for feedback on your intercultural interactions.</li>
+                    <li><strong class="text-blue-600">Seek Feedback:</strong> Ask trusted colleagues or mentors for feedback on your intercultural interactions.</li>
                     <li><strong class="text-blue-600">Reflect and Learn:</strong> After an experience, reflect on what went well and what could be improved.</li>
                     <li><strong class="text-blue-600">Embrace Discomfort:</strong> View challenges as learning opportunities for growth.</li>
                 </ul>
@@ -429,7 +429,7 @@
 
         // Function to update the state of the submit button (enabled/disabled)
         function updateSubmitButtonState() {
-            const allAnswered = quizQuestions.every((_, index) => currentSelections[index] !== undefined && currentSelections[index] !== null);
+            const allAnswered = Object.keys(currentSelections).length === quizQuestions.length;
             const submitBtn = document.getElementById('submit-quiz-btn');
             if (allAnswered) {
                 submitBtn.removeAttribute('disabled');
@@ -497,7 +497,8 @@
             const quizContainer = document.getElementById('quiz-container');
             
             quizQuestions.forEach((q, qIndex) => {
-                const optionsContainer = quizContainer.querySelector(`.options-container:nth-of-type(${qIndex + 1})`);
+                // Find the specific options container for the current question
+                const optionsContainer = quizContainer.querySelector(`.quiz-option[data-question="${qIndex}"]`).closest('.options-container');
                 const selectedOptionDiv = optionsContainer.querySelector('.quiz-option.selected');
                 const correctAnswer = q.correctAnswer;
 
